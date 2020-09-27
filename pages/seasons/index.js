@@ -16,17 +16,25 @@ const Seasons = ({ seasons }) => {
   }, [])
 
   const handleChange = e => setSeasonYear(e.target.value);
-
+  
   const handleClick = e => {
-    switch (e) {
-      case "minus":
-        setSeasonYear(prevState => parseInt(prevState) - 1);
-        break;
-      case "plus":
-        setSeasonYear(prevState => parseInt(prevState) + 1);
-        break;
-    }
+    const season = {
+      minus: setSeasonYear(prevState => parseInt(prevState) - 1),
+      plus: setSeasonYear(prevState => parseInt(prevState) + 1)
+    };
+    return season[e];
   };
+
+  //const handleClick = e => {
+    //switch (e) {
+      //case "minus":
+        //setSeasonYear(prevState => parseInt(prevState) - 1);
+        //break;
+      //case "plus":
+        //setSeasonYear(prevState => parseInt(prevState) + 1);
+        //break;
+    //}
+  //};
 
   return (
     <div>
